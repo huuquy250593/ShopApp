@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
+import {RouterModule, Routes} from "@angular/router";
 
+const userRoutes : Routes = [
+  {path: '', redirectTo: 'index', pathMatch: 'full'},
+  {path: 'index', component: UserComponent}
+]
 
 
 @NgModule({
@@ -9,7 +14,8 @@ import { UserComponent } from './user.component';
     UserComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(userRoutes)
   ]
 })
 export class UserModule { }
